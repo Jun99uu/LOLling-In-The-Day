@@ -14,6 +14,7 @@ const Container = styled.div`
     color: white;
     white-space: pre-line;
     text-align: center;
+    cursor: default;
   }
 `;
 
