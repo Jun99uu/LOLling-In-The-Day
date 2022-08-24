@@ -1,13 +1,68 @@
 import styled from "styled-components";
-
+import { useState, useEffect } from "react";
+import NoticeLayout from "./NoticeBox/NoticeLayout";
 const Container = styled.div`
-  width: 20%;
-  height: 90%;
+  width: 100%;
+  height: 94.5vh;
   background-color: #3d3d3d;
   opacity: 95%;
-  border-radius: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+
+  & > ul {
+    list-style-type: none;
+    padding: 20px 0px 0px 20px;
+    margin: 0px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    & > li {
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    & > .non {
+      opacity: 0.8;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    & > .selected {
+      opacity: 1;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    & > .non:hover {
+      opacity: 0.9;
+    }
+  }
 `;
 
 export default function LeftBar() {
-  return <Container></Container>;
+  const [menu, setMenu] = useState(0); // 0은 알림, 1은 친구목록
+  return (
+    <Container>
+      <ul>
+        <li
+          onClick={() => setMenu(0)}
+          className={menu === 0 ? "selected" : "non"}
+        >
+          알림
+        </li>
+        <li
+          onClick={() => setMenu(1)}
+          className={menu === 1 ? "selected" : "non"}
+        >
+          친구
+        </li>
+      </ul>
+      {menu === 0 ? <NoticeLayout /> : menu === 1 ? <></> : <></>}
+    </Container>
+  );
 }

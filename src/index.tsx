@@ -4,16 +4,19 @@ import App from "./App";
 import Main from "./Pages/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyles from "./Themes/GlobalStyles";
+import { RecoilRoot } from "recoil";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <GlobalStyles />
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/main" element={<Main />} />
-    </Routes>
-  </BrowserRouter>
+  <RecoilRoot>
+    <BrowserRouter>
+      <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+  </RecoilRoot>
 );

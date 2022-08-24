@@ -10,12 +10,15 @@ const GlobalStyles = createGlobalStyle`
   src: local("Pretendard Variable"),
     url("../public/fonts/PretendardVariable.woff2") format("woff2-variations");
 }
-  html, body, div, p {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  html, body{
+    margin: 0px;
+    padding: 0px;
     background-color: black;
     font-family: "Pretendard Variable";
+  }
+
+  div{
+    box-sizing: border-box;
   }
 
   /* :root {
