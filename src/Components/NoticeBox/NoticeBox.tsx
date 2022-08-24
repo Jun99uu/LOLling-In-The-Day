@@ -20,6 +20,7 @@ const Box = styled.div`
   transition: all 0.15s;
 
   & > .type {
+    font-size: 14px;
     color: black;
   }
 
