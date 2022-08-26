@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import NoticeLayout from "./NoticeBox/NoticeLayout";
 const Container = styled.div`
   width: 100%;
-  height: 94.5vh;
+  height: 93vh;
   background-color: #3d3d3d;
   opacity: 95%;
   border-radius: 10px;

@@ -9,11 +9,11 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 3.4fr;
-  padding: 20px;
+  padding: 37px 20px 18px 20px;
   column-gap: 20px;
   position: relative;
-  overflow: hidden;
 `;
 
 interface AuthState {
