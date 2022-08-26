@@ -2,6 +2,51 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import TalkingIndex from "./TalkingBox/TalkingIndex";
 
+export default function RightBar() {
+  const [menu, setMenu] = useState(0); // 0은 이야기, 1은 일기, 2는 롤잔디, 3은 프로필
+  return (
+    <Container>
+      <ul>
+        <li
+          onClick={() => setMenu(0)}
+          className={menu === 0 ? "selected" : "non"}
+        >
+          이야기
+        </li>
+        <li
+          onClick={() => setMenu(1)}
+          className={menu === 1 ? "selected" : "non"}
+        >
+          일기
+        </li>
+        <li
+          onClick={() => setMenu(2)}
+          className={menu === 2 ? "selected" : "non"}
+        >
+          롤잔디
+        </li>
+        <li
+          onClick={() => setMenu(3)}
+          className={menu === 3 ? "selected" : "non"}
+        >
+          프로필
+        </li>
+      </ul>
+      {menu === 0 ? (
+        <TalkingIndex />
+      ) : menu === 1 ? (
+        <>일기</>
+      ) : menu === 2 ? (
+        <>롤잔디</>
+      ) : menu === 3 ? (
+        <>프로필</>
+      ) : (
+        <></>
+      )}
+    </Container>
+  );
+}
+
 const Container = styled.div`
   width: 100%;
   height: 94.5vh;
@@ -50,38 +95,3 @@ const Container = styled.div`
     }
   }
 `;
-
-export default function RightBar() {
-  const [menu, setMenu] = useState(0); // 0은 이야기, 1은 일기, 2는 롤잔디, 3은 프로필
-  return (
-    <Container>
-      <ul>
-        <li
-          onClick={() => setMenu(0)}
-          className={menu === 0 ? "selected" : "non"}
-        >
-          이야기
-        </li>
-        <li
-          onClick={() => setMenu(1)}
-          className={menu === 1 ? "selected" : "non"}
-        >
-          일기
-        </li>
-        <li
-          onClick={() => setMenu(2)}
-          className={menu === 2 ? "selected" : "non"}
-        >
-          롤잔디
-        </li>
-        <li
-          onClick={() => setMenu(3)}
-          className={menu === 3 ? "selected" : "non"}
-        >
-          프로필
-        </li>
-      </ul>
-      <TalkingIndex />
-    </Container>
-  );
-}
