@@ -13,6 +13,7 @@ const Container = styled.div`
   padding: 20px;
   column-gap: 20px;
   position: relative;
+  overflow: hidden;
 `;
 
 interface AuthState {
@@ -27,6 +28,7 @@ export default function Layout() {
     <Container>
       <LeftBar />
       <RightBar />
+      <UnderBar />
     </Container>
   );
 }

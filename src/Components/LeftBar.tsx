@@ -10,16 +10,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-self: start;
+  position: relative;
 
   & > ul {
     list-style-type: none;
-    padding: 20px 0px 0px 20px;
+    padding: 0px;
     margin: 0px;
     display: flex;
     gap: 10px;
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 22px;
 
     & > li {
       transition: all 0.15s;

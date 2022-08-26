@@ -1,5 +1,25 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { knowledge } from "../../Resources/DidYouKnow";
+
+export default function TalkingIndex() {
+  return (
+    <Box>
+      <Circle>
+        <div className="first">상태변경</div>
+        <div className="second">콕찌르기</div>
+      </Circle>
+      <InfoBox>
+        <span className="title">알고 계셨나요?</span>
+        <span className="content">
+          {
+            "상태를 변경하면 친구들에게, 콕찌르기를 하면 상대에게 알림이 간답니다.\n유쾌한 이야기를 주고받아보세요."
+          }
+        </span>
+      </InfoBox>
+    </Box>
+  );
+}
 
 const Box = styled.div`
   display: flex;
@@ -66,11 +86,11 @@ const Circle = styled.div`
 
   & > div {
     color: #fff;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 900;
     text-shadow: 2px 2px 6px #363636d1;
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border-radius: 100%;
     display: flex;
     flex-direction: column;
@@ -113,22 +133,3 @@ const InfoBox = styled.div`
     font-weight: 200;
   }
 `;
-
-export default function TalkingIndex() {
-  return (
-    <Box>
-      <Circle>
-        <div className="first">상태변경</div>
-        <div className="second">콕찌르기</div>
-      </Circle>
-      <InfoBox>
-        <span className="title">알고 계셨나요?</span>
-        <span className="content">
-          {
-            "상태를 변경하면 친구들에게, 콕찌르기를 하면 상대에게 알림이 간답니다.\n유쾌한 이야기를 주고받아보세요."
-          }
-        </span>
-      </InfoBox>
-    </Box>
-  );
-}

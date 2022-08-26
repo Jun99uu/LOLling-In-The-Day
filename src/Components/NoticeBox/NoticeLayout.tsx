@@ -6,11 +6,12 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   display: flex;
   align-items: end;
   flex-direction: column;
   gap: 8px;
-  padding: 15px 0px 40px 0px;
+  padding: 50px 0px 40px 0px;
 
   & > span {
     font-weight: 200;
