@@ -1,9 +1,18 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRecoilState } from "recoil";
+import {
+  RecoilRegisterStateState,
+  RegisterStateInterface,
+} from "../States/RecoilRegisterStateState";
 import TalkingPage from "./TalkingBox/TalkingPage";
+import RegisterState from "./TalkingBox/RegisterState";
 
 export default function RightBar() {
+  const [recoilInfo, setRecoilInfo] = useRecoilState(RecoilRegisterStateState);
+  const registerState: RegisterStateInterface = { ...recoilInfo };
   const [menu, setMenu] = useState(0); // 0은 이야기, 1은 일기, 2는 롤잔디, 3은 프로필
+
   return (
     <Container>
       <ul>
@@ -43,6 +52,7 @@ export default function RightBar() {
       ) : (
         <></>
       )}
+      {registerState.state ? <RegisterState /> : <></>}
     </Container>
   );
 }

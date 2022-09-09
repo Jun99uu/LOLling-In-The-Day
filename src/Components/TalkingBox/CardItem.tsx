@@ -1,4 +1,9 @@
 import styled, { keyframes } from "styled-components";
+import { useRecoilState } from "recoil";
+import {
+  RecoilRegisterStateState,
+  RegisterStateInterface,
+} from "../../States/RecoilRegisterStateState";
 
 interface itemProps {
   cardId: number;
@@ -7,12 +12,45 @@ interface itemProps {
   name: string;
   image: string;
   title: string;
+  subtitle: string;
+  leftColor: string;
+  rightColor: string;
+  decoRes: string;
 }
 
 export default function CardItem(props: itemProps) {
-  const { cardId, emotion, nation, name, image, title } = props;
+  const {
+    cardId,
+    emotion,
+    nation,
+    name,
+    image,
+    title,
+    subtitle,
+    leftColor,
+    rightColor,
+    decoRes,
+  } = props;
+
+  const [recoilInfo, setRecoilInfo] = useRecoilState(RecoilRegisterStateState);
+  const registerState: RegisterStateInterface = { ...recoilInfo };
+
+  const goRegisterState = () => {
+    const newRecoil: RegisterStateInterface = {
+      state: true,
+      cardId: cardId,
+      leftColor: leftColor,
+      rightColor: rightColor,
+
+      title: title,
+      subtitle: subtitle,
+      decoRes: decoRes,
+    };
+    setRecoilInfo(newRecoil);
+  };
+
   return (
-    <Container url={image}>
+    <Container url={image} onClick={() => goRegisterState()}>
       <NameCard>{name}</NameCard>
       <TitleCard>{title}</TitleCard>
     </Container>
@@ -61,7 +99,7 @@ const TitleCard = styled.div`
   bottom: 0px;
   right: 0px;
   padding: 5px 10px;
-  border-radius: 5px 0px 0px 0px;
+  border-radius: 10px 0px 0px 0px;
   text-align: end;
   word-break: keep-all;
   background: rgba(255, 255, 255, 0.25);
