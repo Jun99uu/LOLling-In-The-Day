@@ -39,7 +39,7 @@ export default function ChangeState() {
           setActiveIndex={setActiveIndex}
         />
       </LeftBox>
-      <CardLayout />
+      <CardLayout category={category} activeIndex={activeIndex} />
     </Container>
   );
 }
@@ -48,7 +48,8 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: 0.8fr 2.5fr;
+  column-gap: 20px;
   padding: 60px 25px 30px 25px;
 `;
 

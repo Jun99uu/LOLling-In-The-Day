@@ -54,6 +54,7 @@ export default function SlotLayout(props: slotProps) {
           <EmotionBox
             index={getIndex(index, activeIndex)}
             key={emotion.emotion}
+            onClick={() => setActiveIndex(index)}
           >
             <SlotItem emoji={emotion.emoji} emotion={emotion.emotion} />
           </EmotionBox>
@@ -70,7 +71,6 @@ export default function SlotLayout(props: slotProps) {
 }
 
 const Container = styled.div`
-  width: 75%;
   display: flex;
   height: 100%;
   flex-direction: column;

@@ -72,6 +72,10 @@ export const nations: Array<Emotion> = [
     emotion: "빌지워터",
   },
   {
+    emoji: "🌲",
+    emotion: "아이오니아",
+  },
+  {
     emoji: "🌊",
     emotion: "이쉬탈",
   },
