@@ -1,21 +1,31 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { knowledge } from "../../Resources/DidYouKnow";
 
-export default function TalkingIndex() {
+interface indexProps {
+  setCategory: Dispatch<SetStateAction<number>>;
+}
+
+export default function TalkingIndex(props: indexProps) {
+  const { setCategory } = props;
+  const [info, setInfo] = useState("");
+  useEffect(() => {
+    const rand = Math.ceil(Math.random() * (knowledge.length - 1));
+    setInfo(knowledge[rand]);
+  }, []);
   return (
     <Box>
       <Circle>
-        <div className="first">상태변경</div>
-        <div className="second">콕찌르기</div>
+        <div className="first" onClick={() => setCategory(1)}>
+          상태변경
+        </div>
+        <div className="second" onClick={() => setCategory(2)}>
+          콕찌르기
+        </div>
       </Circle>
       <InfoBox>
         <span className="title">알고 계셨나요?</span>
-        <span className="content">
-          {
-            "상태를 변경하면 친구들에게, 콕찌르기를 하면 상대에게 알림이 간답니다.\n유쾌한 이야기를 주고받아보세요."
-          }
-        </span>
+        <span className="content">{info}</span>
       </InfoBox>
     </Box>
   );
@@ -38,6 +48,8 @@ const Circle = styled.div`
   -moz-animation: AnimationName 16s ease infinite;
   -o-animation: AnimationName 16s ease infinite;
   animation: AnimationName 16s ease infinite;
+
+  transition: all 0.15s;
 
   @-webkit-keyframes AnimationName {
     0% {
@@ -101,6 +113,7 @@ const Circle = styled.div`
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
       rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     cursor: pointer;
+    transition: all 0.25s;
   }
 
   & > .first {
@@ -113,6 +126,14 @@ const Circle = styled.div`
     background: linear-gradient(-45deg, #e38b4f, #ba98ed, #d60000);
     background-size: 300% 300%;
     animation: AnimationName 15s ease infinite;
+  }
+
+  & > div:hover {
+    transform: scale(1.03);
+  }
+
+  & > div:active {
+    transform: scale(0.98);
   }
 `;
 

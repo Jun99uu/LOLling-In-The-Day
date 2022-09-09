@@ -5,29 +5,17 @@ import NoticeBox from "./NoticeBox";
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
   display: flex;
   align-items: end;
   flex-direction: column;
   gap: 8px;
-  padding: 50px 0px 40px 0px;
+  padding: 50px 0px 0px 0px;
 
   & > span {
     font-weight: 200;
     margin-right: 14px;
     font-size: 14px;
     cursor: pointer;
-  }
-
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    height: 17%;
-    background-color: rgba(33, 133, 133, 1);
-    border-radius: 10px;
   }
 `;
 
@@ -94,6 +82,7 @@ export default function NoticeLayout() {
               createdAt={notice.createdAt}
               type={notice.type}
               champion={notice.champion}
+              key={`${notice}-${index}`}
             />
           ))
         ) : (

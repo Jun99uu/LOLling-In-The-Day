@@ -11,6 +11,18 @@ const Container = styled.div`
   flex-direction: column;
   align-self: start;
   position: relative;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 17%;
+    background-color: rgba(33, 133, 133, 1);
+    border-radius: 10px;
+  }
 
   & > ul {
     list-style-type: none;

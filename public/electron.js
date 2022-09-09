@@ -8,12 +8,14 @@ var isDev = require("electron-is-dev");
 // config 파일로 따로 선언하여도 좋습니다.
 var baseUrl = "http://localhost:3000";
 var mainWindow;
+
+const { app, BrowserWindow, ipcMain, webContents } = require("electron");
 function createMainWindow() {
   mainWindow = new electron_1.BrowserWindow({
     width: 1300,
     height: 800,
     minWidth: 1200,
-    minHeight: 700,
+    minHeight: 750,
     frame: false,
     titleBarStyle: "hidden",
     // 위 path, url 모듈을 사용하기 위해서 Node 환경을 Electron에 합치는 것을 뜻합니다.
@@ -35,6 +37,14 @@ function createMainWindow() {
   }
   mainWindow.on("closed", function () {
     mainWindow = null;
+  });
+  ipcMain.on("max", () => {
+    //mainWindow is the reference to your window
+    mainWindow.maximize();
+  });
+  ipcMain.on("min", () => {
+    //mainWindow is the reference to your window
+    mainWindow.minimize();
   });
 }
 // 어플리케이션이 준비가 되었다면 데스크탑 어플리케이션으로 실행합니다.

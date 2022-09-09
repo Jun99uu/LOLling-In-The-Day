@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import TalkingIndex from "./TalkingBox/TalkingIndex";
+import TalkingPage from "./TalkingBox/TalkingPage";
 
 export default function RightBar() {
   const [menu, setMenu] = useState(0); // 0은 이야기, 1은 일기, 2는 롤잔디, 3은 프로필
@@ -33,7 +33,7 @@ export default function RightBar() {
         </li>
       </ul>
       {menu === 0 ? (
-        <TalkingIndex />
+        <TalkingPage />
       ) : menu === 1 ? (
         <>일기</>
       ) : menu === 2 ? (

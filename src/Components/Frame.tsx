@@ -5,15 +5,14 @@ import {
   faWindowMinimize,
   faWindowMaximize,
 } from "@fortawesome/free-solid-svg-icons";
-// import { ipcRenderer } from "electron";
 
 export default function Frame() {
-  //   const ipc = ipcRenderer;
+  // const ipc = require("electron").ipcRenderer;
   const minimize = () => {
-    // ipc.send("minimizeApp");
+    // ipc.send("min");
   };
   const maximize = () => {
-    // ipc.send("maximizeApp");
+    // ipc.send("max");
   };
   const close = () => {
     // ipc.send("closeApp");
@@ -32,6 +31,7 @@ export default function Frame() {
           <FontAwesomeIcon icon={faXmark} />
         </span>
       </div>
+      <div className="drag" />
     </Container>
   );
 }
@@ -44,7 +44,7 @@ const Container = styled.div`
   color: #b3b3b3;
   padding: 10px 20px 5px 20px;
   font-size: 14px;
-  -webkit-app-region: drag;
+  /* -webkit-app-region: drag; */
   position: absolute;
   z-index: 99;
 
@@ -71,5 +71,13 @@ const Container = styled.div`
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
+  }
+
+  & > .drag {
+    position: absolute;
+    z-index: 0;
+    width: 90%;
+    height: 100%;
+    -webkit-app-region: drag;
   }
 `;
